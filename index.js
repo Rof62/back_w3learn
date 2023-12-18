@@ -14,7 +14,7 @@ app.use(bodyParser.json({ limit: "50mb" }));
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 // app.use(cors());
 
-const port = 3306;
+const port = process.env.MYSQL_PORT;
 
 require("./database");
 
