@@ -28,6 +28,10 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get("/", (_, res) => {
+  res.send(JSON.stringify("API WORKING"))
+});
+
 app.use(routes)
 
 app.use("*", (req, res) => {
