@@ -63,7 +63,7 @@ router.post("/addUser", (req, res) => {
             from: 'w3learn.w3@gmail.com',
             to: email,
             subject: 'Confirmez votre inscription',
-            text: `Cliquez sur ce lien pour confirmer votre inscription : http://localhost:3000/confirmRegistration/${token}`,
+            text: `Cliquez sur ce lien pour confirmer votre inscription : https://front-w3learn.vercel.app/confirmRegistration/${token}`,
           };
 
           transporter.sendMail(mailOptions, (emailErr, info) => {
@@ -134,7 +134,7 @@ router.get("/logout", (req, res) => {
     connection.query(sqlSearchMail, [email], (err, result) => {
       if (err) throw err;
       if (result.length !== 0 ) {
-        const confirmLink = `http://localhost:3000/resetPassword?email=${email}`;
+        const confirmLink = `https://front-w3learn.vercel.app/resetPassword?email=${email}`;
         const mailOptions = {
           from: "w3learn.w3@gmail.com",
           to: email,
