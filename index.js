@@ -1,7 +1,7 @@
 const express = require("express");
 const cookie = require("cookie-parser");
 require("dotenv").config();
-// const cors = require("cors");
+const cors = require("cors");
 
 const bodyParser = require("body-parser");
 
@@ -12,7 +12,9 @@ app.use(cookie());
 
 app.use(bodyParser.json({ limit: "50mb" }));
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
-// app.use(cors());
+app.use(cors({
+  origin: "https://front-w3learn.vercel.app"
+}));
 
 const port = process.env.MYSQL_PORT;
 
