@@ -28,7 +28,11 @@ router.post("/login", (req,res) => {
                       expiresIn: 3600 * 24 * 30,
                       algorithm: "RS256",
                   });
-                  res.cookie("token", token, {maxAge: 30 * 24 * 60 * 60 * 1000});
+                  res.cookie("token", token, {maxAge: 30 * 24 * 60 * 60 * 1000,
+                    httpOnly: true,
+                  sameSite: "None",
+                  secure: true,
+                  });
                   res.json(result[0]);
               } else {
                   res.status(400).json("Email et/ou mot de passe incorrects"); 
